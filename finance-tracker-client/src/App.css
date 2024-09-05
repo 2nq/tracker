@@ -1,0 +1,226 @@
+/* Centralizar o layout com flexbox */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; /* Fundo preto */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cccccc; /* Texto cinza claro */
+}
+
+/* Novo container de fundo */
+.background-container {
+  background-color: #2c2c2c; /* Cor cinza mais clara */
+  padding: 5px; /* Para criar espaço ao redor dos containers */
+  border-radius: 12px; /* Bordas arredondadas */
+  border-color: #2c2c2c;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra suave para destacar */
+}
+
+/* Estilo para os containers principais */
+.app-container {
+  display: flex; /* Flexbox para alinhar os containers lado a lado */
+  gap: 20px; /* Espaço entre os containers */
+}
+
+.container {
+  width: 100%;
+  min-width: 400px; /* Definir largura mínima */
+  max-width: 600px; /* Aumentar a largura máxima */
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Limitar a altura da lista para exibir 2 ou 3 montantes e adicionar scroll */
+.list {
+  max-height: 180px; /* Limitar a altura da lista (suficiente para 2 ou 3 montantes) */
+  overflow-y: auto; /* Adicionar scroll vertical */
+}
+
+/* Personalização da scrollbar */
+.list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #1c1c1c;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background-color: #8a2be2;
+  border-radius: 10px;
+  border: 2px solid #1c1c1c;
+}
+
+.scroll-indicator {
+  font-size: 0.7rem;
+  color: #888888;
+  margin-top: 10px;
+}
+
+/* Novo container para os totais */
+.totals-container {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px; /* Diminuir a altura do container */
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre os blocos */
+}
+
+/* Divider para os totais */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #444444; /* Cinza escuro para o divider */
+  margin: 10px 0;
+}
+
+/* Estilos para os totais diário, semanal e mensal */
+.total-daily, .total-weekly, .total-monthly {
+  color: #cccccc; /* Texto permanece cinza claro */
+  font-size: 0.8rem; /* Tamanho da fonte menor */
+}
+
+.total-amount {
+  font-size: 1.2rem; /* Tamanho do valor */
+  font-weight: 700; /* Valor em negrito */
+  color: #32CD32; /* Somente o valor € em verde */
+}
+
+/* Ajustar a fonte e espaçamento da aplicação */
+body, .container, .input, .button, .list__item {
+  font-size: 0.8rem;
+  font-family: monospace;
+  text-transform: lowercase;
+}
+
+/* Aumentar o espaçamento entre o h1 e o input */
+h1 {
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Aumentar o espaçamento entre o input e os ganhos diários */
+.form {
+  margin-bottom: 30px;
+}
+
+.list {
+  margin-top: 20px;
+}
+
+/* Aumentar o tamanho do montante (€) e adicionar font-weight */
+.list__item .amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.list__item .date {
+  font-size: 0.7rem;
+  color: #cccccc;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+
+.list__item {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list__item .button-remove {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  position: absolute;
+  right: 10px;
+}
+
+.list__item:hover .button-remove {
+  opacity: 1;
+}
+
+.button {
+  background-color: #8a2be2;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.button:hover {
+  background-color: #7a1bd4;
+}
+
+.input {
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #555555;
+  padding: 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: calc(100% - 120px);
+}
+
+/* Estilo para o overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-content {
+  background-color: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+/* Ajuste do gráfico */
+.overlay-content canvas {
+  margin-top: 20px;
+  max-width: 100%;
+}
